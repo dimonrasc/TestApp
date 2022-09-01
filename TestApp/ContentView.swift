@@ -7,6 +7,23 @@
 
 import SwiftUI
 
+struct ContentView: View{
+    @State var playAudio = true
+    var body: some View{
+        Button(action:{
+            if playAudio{
+                playSound(sound: "01. Money", type: "mp3")
+            }else{
+                stopSound()
+            }
+            playAudio.toggle()
+        }, label: {
+            Text(playAudio ? "Play audio" : "Stop audio")
+        })
+    }
+}
+
+/*
 struct ContentView: View {
     
     @State var createText = ""
@@ -46,9 +63,9 @@ struct ContentView: View {
             }
             TextEditor(text: $displayText)
         }.padding()
-        
     }
 }
+ */
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
